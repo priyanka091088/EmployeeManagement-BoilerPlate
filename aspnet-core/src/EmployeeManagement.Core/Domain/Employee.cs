@@ -25,8 +25,7 @@ namespace EmployeeManagement.Domain
         public string Qualification { get; set; }
         [Required]
         public string ContactNo { get; set; }
-
-
+        
         public int DepartId { get; set; }
         [ForeignKey("DepartId ")]
         public Department Department { get; set; }

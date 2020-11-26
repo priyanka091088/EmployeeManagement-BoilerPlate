@@ -22,8 +22,10 @@ class PagedRolesRequestDto extends PagedRequestDto {
 export class EmployeeComponent extends PagedListingComponentBase<EmployeeDTO>{
   public pageTitle:string="Employee List";
   employeeList: EmployeeDTO[] = [];
+  employeeDetails:EmployeeDTO[];
   keyword = '';
-  public departName:string[]=[];
+  a:number=0;
+  public departNameList:string[]=[];
   constructor(injector: Injector,private departmentService:DepartmentServiceProxy,
     private _modalService: BsModalService,private employeeService:EmployeeServiceProxy)
      {
@@ -44,17 +46,18 @@ export class EmployeeComponent extends PagedListingComponentBase<EmployeeDTO>{
         )
         .subscribe({
             next:res=>{
+              
                 this.employeeList = res.items;
-                console.log(this.employeeList);
                 for(var i=0;i<this.employeeList.length;i++){
                     this.departmentService.get(this.employeeList[i].departId).subscribe({
                         next:res=>{
-                          this.departName[i]= res.departName;
-                            //this.employeeList[i].departName=departName;
+                          
+                          this.departNameList[this.a]= res.departName;
+                          this.a++;
                         }
                     })
                 }
-                console.log(this.departName);
+                this.employeeDetails=res.items;
                 this.showPaging(res, pageNumber);
             }
         });
