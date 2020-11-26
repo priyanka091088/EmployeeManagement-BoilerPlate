@@ -1,0 +1,16 @@
+<form #form="ngForm" ngNativeValidate 
+  class="form-horizontal"
+  autocomplete="off"
+>
+  <abp-modal-header
+    [title]="'Edit Department' | localize"
+  ></abp-modal-header>
+
+<div>
+     <label>Department Name</label>
+     <input type="text" id="nameInput" name="DepartName" placeholder="Department Name" [(ngModel)]="depart.departName" maxlength="20" required/><br /><br />
+      <br />
+      <button type="submit" class="btn btn-success" (click)="edit()" [disabled]="form.invalid">Update</button>
+      <button class="btn btn-danger" (click)="Back()">cancel</button>
+</div>
+</form>

@@ -1,0 +1,83 @@
+
+    <div>
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-6">
+                <h1>{{ "Department" | localize }}</h1>
+              </div>
+              
+              <div class="col-6 text-right">
+                <a href="javascript:;" class="btn bg-blue" (click)="createDepartment()">
+                  <i class="fa fa-plus-square"></i>
+                  {{ "Create" | localize }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="content px-2">
+          <div class="container-fluid">
+            <div class="card">
+              <div class="card-header">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button
+                      type="button"
+                      class="btn bg-blue"
+                      
+                    >
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="keyword"
+                    [placeholder]="'SearchWithThreeDot' | localize"
+                    
+                  />
+                </div>
+              </div>
+  
+    <div class="card-body">
+  
+  
+      <div class="table-responsive">
+        <table class="table mb-0">
+          <thead>
+            <tr>
+              <th>Department Name</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of departList">
+            <td>{{d.departName}}</td>
+  
+            <td>
+                <button
+                type="button"
+                class="btn btn-sm bg-secondary"
+                (click)="editDepartment(d)"
+              >
+                <i class="fas fa-pencil-alt"></i>
+                {{ "Edit" | localize }}
+              </button>
+              <button
+                type="button"
+                class="btn btn-sm bg-danger mx-2"
+                (click)="delete(d)"
+              >
+                <i class="fas fa-trash"></i>
+                {{ "Delete" | localize }}
+              </button>
+            </td>
+          </tr>
+          </tbody>
+          
+          </table>
+        </div>
+  
+  </div>
+  
