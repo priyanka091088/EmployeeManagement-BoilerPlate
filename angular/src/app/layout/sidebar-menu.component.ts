@@ -45,6 +45,12 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
     return [
       new MenuItem(this.l('HomePage'), '/app/home', 'fas fa-home'),
       new MenuItem(
+        this.l('Users'),
+        '/app/users',
+        'fas fa-users',
+        'Pages.Users'
+      ),
+      new MenuItem(
         this.l('Roles'),
         '/app/roles',
         'fas fa-theater-masks',
@@ -54,13 +60,13 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
         this.l('Employees'),
         '/app/employees',
         'fas fa-users',
-        'Pages.Users'
+        'Pages.Employees'
       ),
       new MenuItem(
         this.l('Department'),
         '/app/departments',
         'fas fa-building',
-        'Pages.Users'
+        'Pages.Departments'
       ),
 
       /*new MenuItem(

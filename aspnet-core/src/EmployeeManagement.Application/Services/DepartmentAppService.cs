@@ -11,7 +11,7 @@ using System.Text;
 
 namespace EmployeeManagement.Services
 {
-    [AbpAuthorize(PermissionNames.Pages_Users)]
+    [AbpAuthorize(PermissionNames.Pages_Departments)]
     public class DepartmentAppService:AsyncCrudAppService<Department,DepartmentDTO>, IDepartmentAppService
     {
         public DepartmentAppService(IRepository<Department> repository):base(repository)

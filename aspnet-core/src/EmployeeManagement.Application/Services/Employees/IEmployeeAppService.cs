@@ -8,7 +8,7 @@ using System.Text;
 
 namespace EmployeeManagement.Services.Employees
 {
-    public interface IEmployeeAppService: IAsyncCrudAppService<EmployeeDTO>
+    public interface IEmployeeAppService: IAsyncCrudAppService<EmployeeDTO,int,GetAllEmployeesDTO,CreateEmployeeDTO>
     {
     }
 }
