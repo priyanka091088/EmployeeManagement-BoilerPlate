@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <form #form="ngForm" autocomplete="off" ngNativeValidate >
+            <abp-modal-header
+            [title]="'Edit Employee Profile' | localize"
+          ></abp-modal-header>
+
+            <label>Name</label>
+            <input type="text" id="nameInput" name="Name" placeholder="Your Name" [(ngModel)]="employee.name" maxlength="20" required/><br /><br />
+
+            <label>Surname</label>
+            <input type="text" id="surnameInput" name="Surname" placeholder="Your Surname" [(ngModel)]="employee.surname" maxlength="20" required /><br /><br />
+
+            <label>Address</label>
+            <input type="text" id="addressInput" name="Address" placeholder="Your Address" [(ngModel)]="employee.address" maxlength="100" required/><br /><br />
+
+            <label>Qualification</label>
+            <input type="text" id="qualificationInput" name="Qualification" placeholder="Your Qualifiaction" [(ngModel)]="employee.qualification" required/><br /><br />
+
+            <label>Contact Number</label>
+            <input type="text" name="ContactNo" id="contactNoInput" placeholder="Your Contact Number" [(ngModel)]="employee.contactNo" maxlength="10" required /><br /><br />
+
+
+            <button type="submit" class="btn btn-success" (click)="save()" [disabled]="(form.invalid)">Update Profile</button>
+            
+        </form>
+    </div>
+
+</div>

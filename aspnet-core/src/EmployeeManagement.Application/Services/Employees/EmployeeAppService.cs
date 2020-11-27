@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Services.Employees
 {
-    [AbpAuthorize(PermissionNames.Pages_Users)]
+    [AbpAuthorize(PermissionNames.Pages_Employee)]
     public class EmployeeAppService : AsyncCrudAppService<Employee, EmployeeDTO,int,GetAllEmployeesDTO,CreateEmployeeDTO>, IEmployeeAppService
     {
         private readonly UserManager _userManager;
@@ -36,9 +36,9 @@ namespace EmployeeManagement.Services.Employees
         public override async Task<EmployeeDTO> CreateAsync(CreateEmployeeDTO input)
         {
             CheckCreatePermission();
-            
+
             var user = new User();
-            var employees = new Employee();
+            var employee = ObjectMapper.Map<Employee>(input);
 
             user.UserName = input.Name;
             user.EmailAddress = input.Email;
@@ -50,23 +50,20 @@ namespace EmployeeManagement.Services.Employees
 
             var role = await _roleManager.RoleExistsAsync("Employee");
             await _userManager.InitializeOptionsAsync(AbpSession.TenantId);
- 
-            CheckErrors(await _userManager.CreateAsync(user, password));
-            if(role== true)
-            {
-                CheckErrors(await _userManager.AddToRoleAsync(user, "Employee"));
-                employees.Name = input.Name;
-                employees.Surname = input.Surname;
-                employees.Address = input.Address;
-                employees.Email = input.Email;
-                employees.Qualification = input.Qualification;
-                employees.ContactNo = input.ContactNo;
-                employees.DepartId = input.DepartId;
 
-                _employee.Insert(employees);
+            var result = await _userManager.FindByEmailAsync(input.Email);
+                if (result == null)
+            {
+                CheckErrors(await _userManager.CreateAsync(user, password));
+                if (role == true)
+                {
+                    CheckErrors(await _userManager.AddToRoleAsync(user, "Employee"));
+                    _employee.Insert(employee);
+                }
+                CurrentUnitOfWork.SaveChanges();
             }
-            CurrentUnitOfWork.SaveChanges();
-            return MapToEntityDto(employees);
+            
+            return MapToEntityDto(employee);
         }
 
         protected virtual void CheckErrors(IdentityResult identityResult)
@@ -78,6 +75,18 @@ namespace EmployeeManagement.Services.Employees
         {
             var employeeDto = base.MapToEntityDto(emp);
             return employeeDto;
+        }
+        public override async Task DeleteAsync(EntityDto<int> input)
+        {
+            
+            var emp = _employee.FirstOrDefault(e => e.Id == input.Id);
+
+            var user = await _userManager.FindByEmailAsync(emp.Email);
+            await _userManager.DeleteAsync(user);
+
+            await  _employee.DeleteAsync(emp);
+
+            CurrentUnitOfWork.SaveChanges();
         }
         [HttpGet]
         [Route("getAllEmployees")]

@@ -47,6 +47,7 @@ import {EditDepartmentDialogComponent} from './department/edit-department/edit-d
 import {EmployeeComponent} from './employee/employee.component';
 import {CreateEmployeeDialogComponent} from './employee/create-employee/create-employee-dialog.component';
 import {EditEmployeeDialogComponent} from './employee/edit-employee/edit-employee-dialog.component';
+import {EditProfileComponent} from './employee/edit-profile/edit-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +84,8 @@ import {EditEmployeeDialogComponent} from './employee/edit-employee/edit-employe
     //Employees
     EmployeeComponent,
     CreateEmployeeDialogComponent,
-    EditEmployeeDialogComponent
+    EditEmployeeDialogComponent,
+    EditProfileComponent
   ],
   imports: [
     CommonModule,

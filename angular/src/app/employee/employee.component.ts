@@ -24,7 +24,7 @@ export class EmployeeComponent extends PagedListingComponentBase<EmployeeDTO>{
   employeeList: EmployeeDTO[] = [];
   employeeDetails:EmployeeDTO[];
   keyword = '';
-  
+
   public departNameList:string[]=[];
   constructor(injector: Injector,private departmentService:DepartmentServiceProxy,
     private _modalService: BsModalService,private employeeService:EmployeeServiceProxy)
