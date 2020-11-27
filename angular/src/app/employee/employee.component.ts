@@ -24,7 +24,7 @@ export class EmployeeComponent extends PagedListingComponentBase<EmployeeDTO>{
   employeeList: EmployeeDTO[] = [];
   employeeDetails:EmployeeDTO[];
   keyword = '';
-  a:number=0;
+  
   public departNameList:string[]=[];
   constructor(injector: Injector,private departmentService:DepartmentServiceProxy,
     private _modalService: BsModalService,private employeeService:EmployeeServiceProxy)
@@ -36,7 +36,7 @@ export class EmployeeComponent extends PagedListingComponentBase<EmployeeDTO>{
     pageNumber: number,
     finishedCallback: Function):void{
         request.keyword = this.keyword;
-
+        var a=0;
         this.employeeService
         .getAll(request.keyword, request.skipCount, request.maxResultCount)
         .pipe(
@@ -48,16 +48,16 @@ export class EmployeeComponent extends PagedListingComponentBase<EmployeeDTO>{
             next:res=>{
               
                 this.employeeList = res.items;
-                for(var i=0;i<this.employeeList.length;i++){
-                    this.departmentService.get(this.employeeList[i].departId).subscribe({
+                for(var j=0;j<this.employeeList.length;j++){
+                    this.departmentService.get(this.employeeList[j].departId).subscribe({
                         next:res=>{
                           
-                          this.departNameList[this.a]= res.departName;
-                          this.a++;
+                          this.departNameList[a]= res.departName;
+                          a++;
                         }
                     })
                 }
-                this.employeeDetails=res.items;
+                //this.employeeDetails=res.items;
                 this.showPaging(res, pageNumber);
             }
         });

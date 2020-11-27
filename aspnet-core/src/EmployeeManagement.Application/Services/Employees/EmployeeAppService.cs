@@ -14,9 +14,10 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Services.Employees
 {
-    public class EmployeeAppService:AsyncCrudAppService<Employee,EmployeeDTO>,IEmployeeAppService
+    public class EmployeeAppService : AsyncCrudAppService<Employee, EmployeeDTO>, IEmployeeAppService
     {
-        public EmployeeAppService(IRepository<Employee> repository) :base(repository)
+        
+        public EmployeeAppService(IRepository<Employee> repository) : base(repository)
         {
         }
     }
