@@ -1,0 +1,26 @@
+<div class="card-body">
+  
+    <div class="table-responsive">
+      <table class="table mb-0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Address</th>
+            <th>Qualification</th>
+            <th>Contact Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ed of employeeList;let i = index">
+          <td>{{ed.name}}</td>
+          <td>{{ed.surname}}</td>
+          <td>{{ed.address}}</td>
+          <td>{{ed.qualification}}</td>
+          <td>{{ed.contactNo}}</td>
+         
+        </tr>
+        </tbody>
+        </table>
+      </div>
+      </div>

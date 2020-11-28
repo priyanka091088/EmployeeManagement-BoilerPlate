@@ -11,6 +11,7 @@ import { ChangePasswordComponent } from './users/change-password/change-password
 import { DepartmentComponent } from './department/department.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EditProfileComponent } from './employee/edit-profile/edit-profile.component';
+import { ViewProfileComponent } from './employee/view-profile/view-profile.component';
 
 @NgModule({
     imports: [
@@ -26,7 +27,7 @@ import { EditProfileComponent } from './employee/edit-profile/edit-profile.compo
                     { path: 'about', component: AboutComponent },
                     { path: 'departments', component: DepartmentComponent,data: { permission: 'Pages.Departments' },  canActivate: [AppRouteGuard] },
                     { path: 'employees', component: EmployeeComponent,data: { permission: 'Pages.Employees' },  canActivate: [AppRouteGuard] },
-                    { path: 'employee-profile', component: EditProfileComponent,data: { permission: 'Pages.EmployeesProfile' },  canActivate: [AppRouteGuard] },
+                    { path: 'employee-profile', component: ViewProfileComponent,data: { permission: 'Pages.EmployeesProfile' },  canActivate: [AppRouteGuard] },
                     { path: 'update-password', component: ChangePasswordComponent }
                 ]
             }

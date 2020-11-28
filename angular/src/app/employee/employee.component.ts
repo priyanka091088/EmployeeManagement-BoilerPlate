@@ -36,7 +36,7 @@ export class EmployeeComponent extends PagedListingComponentBase<EmployeeDTO>{
     pageNumber: number,
     finishedCallback: Function):void{
         request.keyword = this.keyword;
-        var a=0;
+        
         this.employeeService
         .getAll(request.keyword, request.skipCount, request.maxResultCount)
         .pipe(
@@ -46,18 +46,22 @@ export class EmployeeComponent extends PagedListingComponentBase<EmployeeDTO>{
         )
         .subscribe({
             next:res=>{
+              var a=0;
               
                 this.employeeList = res.items;
+                console.log(this.employeeList)
                 for(var j=0;j<this.employeeList.length;j++){
+                  console.log(this.employeeList[j].departId)
                     this.departmentService.get(this.employeeList[j].departId).subscribe({
-                        next:res=>{
-                          
-                          this.departNameList[a]= res.departName;
+                        next:dep=>{
+                          console.log(dep.departName)
+                          this.departNameList[a]= dep.departName;
                           a++;
                         }
                     })
                 }
-                //this.employeeDetails=res.items;
+                console.log(this.departNameList);
+                
                 this.showPaging(res, pageNumber);
             }
         });

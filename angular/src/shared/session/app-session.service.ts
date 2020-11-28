@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import {
     ApplicationInfoDto,
     GetCurrentLoginInformationsOutput,
+    GetRoleForEditOutput,
+    RoleDtoPagedResultDto,
     SessionServiceProxy,
     TenantLoginInfoDto,
     UserLoginInfoDto
@@ -14,7 +16,7 @@ export class AppSessionService {
     private _user: UserLoginInfoDto;
     private _tenant: TenantLoginInfoDto;
     private _application: ApplicationInfoDto;
-
+    
     constructor(
         private _sessionService: SessionServiceProxy,
         private _abpMultiTenancyService: AbpMultiTenancyService) {
@@ -31,7 +33,6 @@ export class AppSessionService {
     get userId(): number {
         return this.user ? this.user.id : null;
     }
-
     get tenant(): TenantLoginInfoDto {
         return this._tenant;
     }

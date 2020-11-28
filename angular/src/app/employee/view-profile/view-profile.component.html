@@ -1,0 +1,46 @@
+
+<div>
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <h1>{{ "Employee Profile" | localize }}</h1>
+          </div>
+          
+          <div class="col-6 text-right">
+            <a href="javascript:;" class="btn bg-blue" (click)="editProfile(employee)">
+              <i class="fa fa-plus-square"></i>
+              {{ "Edit Profile" | localize }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+<div class="card">
+    <div class="card-body">
+  
+  
+          <label>Name:</label><br>
+          <label>{{employee.name}}</label><br><br>
+          <label>Surname:</label><br>
+          <label>{{employee.surname}}</label><br><br>
+          <label>Address:</label><br>
+          <label>{{employee.address}}</label><br><br>
+          <label>Email: </label><br>
+          <label>{{employee.email}}</label><br><br>
+          <label>Qualification: </label><br>
+          <label>{{employee.qualification}}</label><br><br>
+          <label>Contact Number: </label><br>
+          <label>{{employee.contactNo}}</label><br><br>
+          <button
+          type="button"
+          class="btn btn-sm bg-primary"
+          (click)="viewEmployees()"
+        >
+          <i class="fas fa-eye"></i>
+          {{ "View Employee Of Your Depart" | localize }}
+        </button>
+  
+  </div>
+  

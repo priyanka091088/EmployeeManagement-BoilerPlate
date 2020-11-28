@@ -58,7 +58,7 @@ export class AppAuthService {
         authenticateResult: AuthenticateResultModel
     ) {
         this.authenticateResult = authenticateResult;
-
+       
         if (authenticateResult.accessToken) {
             // Successfully logged in
             this.login(
@@ -86,7 +86,7 @@ export class AppAuthService {
             : undefined;
 
         this._tokenService.setToken(accessToken, tokenExpireDate);
-
+        
         this._utilsService.setCookieValue(
             AppConsts.authorization.encryptedAuthTokenName,
             encryptedAccessToken,

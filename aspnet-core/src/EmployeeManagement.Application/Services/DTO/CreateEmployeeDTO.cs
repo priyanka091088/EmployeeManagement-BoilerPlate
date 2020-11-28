@@ -28,7 +28,7 @@ namespace EmployeeManagement.Services.DTO
         [Required]
         public string ContactNo { get; set; }
         public int DepartId { get; set; }
-        public string? departName { get; set; }
+        //public string? departName { get; set; }
         public Department Department { get; set; }
     }
 }

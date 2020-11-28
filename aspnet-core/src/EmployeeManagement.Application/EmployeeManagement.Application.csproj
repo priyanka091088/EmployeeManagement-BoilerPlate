@@ -11,6 +11,9 @@
     <RootNamespace>EmployeeManagement</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\EmployeeManagement.Core\Authorization\Users\UserClaimsPrincipalFactory.cs" Link="UserClaimsPrincipalFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\EmployeeManagement.Core\EmployeeManagement.Core.csproj" />
   </ItemGroup>
 </Project>

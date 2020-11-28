@@ -48,6 +48,8 @@ import {EmployeeComponent} from './employee/employee.component';
 import {CreateEmployeeDialogComponent} from './employee/create-employee/create-employee-dialog.component';
 import {EditEmployeeDialogComponent} from './employee/edit-employee/edit-employee-dialog.component';
 import {EditProfileComponent} from './employee/edit-profile/edit-profile.component';
+import {ViewProfileComponent} from './employee/view-profile/view-profile.component';
+import {ViewEmployeeOfSameDepartComponent} from './employee/view-employee/view-employee-of-sameDepart.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +87,9 @@ import {EditProfileComponent} from './employee/edit-profile/edit-profile.compone
     EmployeeComponent,
     CreateEmployeeDialogComponent,
     EditEmployeeDialogComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ViewProfileComponent,
+    ViewEmployeeOfSameDepartComponent
   ],
   imports: [
     CommonModule,
@@ -119,7 +123,9 @@ import {EditProfileComponent} from './employee/edit-profile/edit-profile.compone
     EditDepartmentDialogComponent,
     //Employees
     CreateEmployeeDialogComponent,
-    EditEmployeeDialogComponent
+    EditEmployeeDialogComponent,
+    EditProfileComponent,
+    ViewEmployeeOfSameDepartComponent
   ],
 })
 export class AppModule {}
