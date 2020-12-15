@@ -42,7 +42,7 @@ namespace EmployeeManagement.Services.Employees
             var user = new User();
             var employee = ObjectMapper.Map<Employee>(input);
 
-            user.UserName = input.Name;
+            user.UserName = input.Email;
             user.EmailAddress = input.Email;
             user.Name = input.Name;
             user.Surname = input.Surname;

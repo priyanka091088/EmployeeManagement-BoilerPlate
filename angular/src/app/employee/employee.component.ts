@@ -10,6 +10,7 @@ import { request } from 'https';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { finalize } from 'rxjs/operators';
 import { CreateEmployeeDialogComponent } from './create-employee/create-employee-dialog.component';
+import { DeleteEmployeeDialogComponent } from './delete-employee/delete-employee-dialog.component';
 import { EditEmployeeDialogComponent } from './edit-employee/edit-employee-dialog.component';
 class PagedRolesRequestDto extends PagedRequestDto {
     keyword: string;
@@ -68,23 +69,7 @@ export class EmployeeComponent extends PagedListingComponentBase<EmployeeDTO>{
 
     }
     delete(employee: EmployeeDTO): void {
-        abp.message.confirm(
-          this.l('RoleDeleteWarningMessage', employee.name),
-          undefined,
-          (result: boolean) => {
-            if (result) {
-              this.employeeService
-                .delete(employee.id)
-                .pipe(
-                  finalize(() => {
-                    abp.notify.success(this.l('Successfully Deleted'));
-                    this.refresh();
-                  })
-                )
-                .subscribe(() => {});
-            }
-          }
-        );
+       this.deleteEmployee(employee.id);
       }
       createEmployee(): void {
         this.showCreateOrEditemployeeDialog();
@@ -119,5 +104,20 @@ export class EmployeeComponent extends PagedListingComponentBase<EmployeeDTO>{
           this.refresh();
         });
       }
+      deleteEmployee(id?:number):void{
+        let DeleteEmployeeDialog: BsModalRef;
 
+        DeleteEmployeeDialog = this._modalService.show(
+          DeleteEmployeeDialogComponent,
+        {
+          class: 'modal-lg',
+          initialState: {
+            id: id,
+          },
+        }
+      );
+      DeleteEmployeeDialog.content.onSave.subscribe(() => {
+        this.refresh();
+      });
+  }
 }

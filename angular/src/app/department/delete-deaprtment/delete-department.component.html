@@ -1,0 +1,15 @@
+<form #form="ngForm" ngNativeValidate 
+  class="form-horizontal"
+  autocomplete="off"
+>
+  <abp-modal-header
+    [title]="'Delete Department' | localize"
+  ></abp-modal-header>
+
+<div>
+     <label>Do You Really Want To Delete Department "{{depart.departName}}"??</label>
+     <br><br>
+      <button type="submit" class="btn btn-danger" (click)="delete()">Delete</button>
+      <button class="btn btn-primary" (click)="Back()">cancel</button>
+</div>
+</form>

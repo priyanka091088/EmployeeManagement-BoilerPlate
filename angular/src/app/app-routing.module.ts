@@ -10,7 +10,6 @@ import { RolesComponent } from 'app/roles/roles.component';
 import { ChangePasswordComponent } from './users/change-password/change-password.component';
 import { DepartmentComponent } from './department/department.component';
 import { EmployeeComponent } from './employee/employee.component';
-import { EditProfileComponent } from './employee/edit-profile/edit-profile.component';
 import { ViewProfileComponent } from './employee/view-profile/view-profile.component';
 
 @NgModule({

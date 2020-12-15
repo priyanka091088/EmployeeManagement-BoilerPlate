@@ -42,14 +42,15 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
 import {DepartmentComponent} from './department/department.component';
 import {CreateDepartmentDialogComponent} from './department/create-department/create-depatment-dialog.component';
 import {EditDepartmentDialogComponent} from './department/edit-department/edit-department-dialog.component';
-
+import {DeleteDepartmentDialogComponent} from './department/delete-deaprtment/delete-department.component';
 //Employees
 import {EmployeeComponent} from './employee/employee.component';
 import {CreateEmployeeDialogComponent} from './employee/create-employee/create-employee-dialog.component';
 import {EditEmployeeDialogComponent} from './employee/edit-employee/edit-employee-dialog.component';
 import {EditProfileComponent} from './employee/edit-profile/edit-profile.component';
 import {ViewProfileComponent} from './employee/view-profile/view-profile.component';
-import {ViewEmployeeOfSameDepartComponent} from './employee/view-employee/view-employee-of-sameDepart.component'
+import {ViewEmployeeOfSameDepartComponent} from './employee/view-employee/view-employee-of-sameDepart.component';
+import {DeleteEmployeeDialogComponent} from './employee/delete-employee/delete-employee-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,13 +84,15 @@ import {ViewEmployeeOfSameDepartComponent} from './employee/view-employee/view-e
     DepartmentComponent,
     CreateDepartmentDialogComponent,
     EditDepartmentDialogComponent,
+    DeleteDepartmentDialogComponent,
     //Employees
     EmployeeComponent,
     CreateEmployeeDialogComponent,
     EditEmployeeDialogComponent,
     EditProfileComponent,
     ViewProfileComponent,
-    ViewEmployeeOfSameDepartComponent
+    ViewEmployeeOfSameDepartComponent,
+    DeleteEmployeeDialogComponent
   ],
   imports: [
     CommonModule,
@@ -121,11 +124,13 @@ import {ViewEmployeeOfSameDepartComponent} from './employee/view-employee/view-e
     //department
     CreateDepartmentDialogComponent,
     EditDepartmentDialogComponent,
+    DeleteDepartmentDialogComponent,
     //Employees
     CreateEmployeeDialogComponent,
     EditEmployeeDialogComponent,
     EditProfileComponent,
-    ViewEmployeeOfSameDepartComponent
+    ViewEmployeeOfSameDepartComponent,
+    DeleteEmployeeDialogComponent
   ],
 })
 export class AppModule {}

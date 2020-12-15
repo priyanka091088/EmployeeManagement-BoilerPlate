@@ -75,8 +75,8 @@
       </div>
     </div>
   </form>
-  <p *ngIf="isSelfRegistrationAllowed" class="mb-1">
-    <a [routerLink]="['../register']">
+  <p class="mb-1">
+    <a *ngIf="isSelfRegistrationAllowed" [routerLink]="['../register']">
       <i class="fa fa-plus-circle"></i> {{ "Register" | localize }}
     </a>
   </p>

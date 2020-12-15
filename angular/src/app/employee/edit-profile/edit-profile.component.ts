@@ -87,7 +87,7 @@ import { finalize } from 'rxjs/operators';
             })
           )
           .subscribe(() => {
-           // alert('Suucessfully updated');
+           
             this.notify.info(this.l('Updated Successfully'));
             
             this.onSave.emit();

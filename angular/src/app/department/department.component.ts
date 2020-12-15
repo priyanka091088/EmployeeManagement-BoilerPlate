@@ -10,6 +10,7 @@ import { request } from 'https';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { finalize } from 'rxjs/operators';
 import { CreateDepartmentDialogComponent } from './create-department/create-depatment-dialog.component';
+import { DeleteDepartmentDialogComponent } from './delete-deaprtment/delete-department.component';
 import { EditDepartmentDialogComponent } from './edit-department/edit-department-dialog.component';
 
 class PagedRolesRequestDto extends PagedRequestDto {
@@ -48,7 +49,7 @@ export class DepartmentComponent extends PagedListingComponentBase<DepartmentDTO
         });
     }
     delete(depart: DepartmentDTO): void {
-        abp.message.confirm(
+        /*abp.message.confirm(
           this.l('RoleDeleteWarningMessage', depart.departName),
           undefined,
           (result: boolean) => {
@@ -64,7 +65,8 @@ export class DepartmentComponent extends PagedListingComponentBase<DepartmentDTO
                 .subscribe(() => {});
             }
           }
-        );
+        );*/
+        this.DeleteDepartmentDialog(depart.id);
       }
       createDepartment(): void {
         this.showCreateOrEditDepartDialog();
@@ -99,5 +101,20 @@ export class DepartmentComponent extends PagedListingComponentBase<DepartmentDTO
           this.refresh();
         });
       }
-
+      DeleteDepartmentDialog(id?:number):void
+      {
+        let DeleteDepartDialog: BsModalRef;
+        DeleteDepartDialog = this._modalService.show(
+          DeleteDepartmentDialogComponent,
+        {
+          class: 'modal-lg',
+          initialState: {
+            id: id,
+          },
+        }
+      );
+      DeleteDepartDialog.content.onSave.subscribe(() => {
+        this.refresh();
+      });
+      }
 }
